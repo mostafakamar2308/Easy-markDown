@@ -38,3 +38,29 @@
   margin-bottom: 0.25rem;
   cursor: pointer;
 }
+
+.style-tab {
+  display: grid;
+  grid-template-columns: auto auto;
+  row-gap: 5px;
+  grid-template-rows: auto auto;
+}
+.mode {
+  display: flex;
+}
+.style-tab button {
+  padding: 0.5rem;
+  border: 1px solid var(--main-accent-clr);
+  border-radius: 5px;
+  margin-right: 3px;
+  background-color: transparent;
+}
+textarea {
+  border: 3px solid var(--main-accent-clr);
+  margin: 10px;
+  width: calc(100% - 20px);
+  height: 80vh;
+  text-indent: 5px;
+  padding: 1rem;
+  font-size: 1.5rem;
+}
