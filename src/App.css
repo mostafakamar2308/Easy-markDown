@@ -1,38 +1,40 @@
+:root {
+  --main-accent-clr: #4a4e74;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .App {
-  text-align: center;
+  display: grid;
+  grid-template-columns: 30% 70%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.add-new-note {
+  background-color: var(--main-accent-clr);
   color: white;
+  padding: 0.75rem 1rem;
+  border: none;
+  height: max-content;
+  cursor: pointer;
+  border-radius: 05px;
 }
-
-.App-link {
-  color: #61dafb;
+.app-title {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0.5rem;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App > section {
+  border-right: 1px solid var(--main-accent-clr);
+  min-height: 100vh;
+}
+.note {
+  background-color: var(--main-accent-clr);
+  padding: 0.75rem 1rem;
+  color: white;
+  margin-bottom: 0.25rem;
+  cursor: pointer;
 }
