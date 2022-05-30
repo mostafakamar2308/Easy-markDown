@@ -1,15 +1,15 @@
 import React from "react";
 
-export function Settings() {
+export function Settings(props) {
   return (
     <section className="style-tab">
       <div className="mode">
-        <div>Edit</div>
+        <div className="active-mode">Edit</div>
 
         <div>Preview</div>
       </div>
       <div className="style">
-        <button>H</button>
+        <button onClick={props.handle}>H</button>
         <button>B</button>
         <button style={{ fontStyle: "italic" }}>I</button>
         <button style={{ textDecoration: "line-through" }}>S</button>

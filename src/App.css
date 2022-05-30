@@ -32,11 +32,16 @@
   min-height: 100vh;
 }
 .note {
-  background-color: var(--main-accent-clr);
   padding: 0.75rem 1rem;
-  color: white;
   margin-bottom: 0.25rem;
   cursor: pointer;
+}
+.note:hover {
+  background-color: #eee;
+}
+.active-note {
+  background-color: var(--main-accent-clr) !important;
+  color: white;
 }
 
 .style-tab {
@@ -44,12 +49,28 @@
   grid-template-columns: auto auto;
   row-gap: 5px;
   grid-template-rows: auto auto;
+  padding: 0.5rem 0.25rem;
 }
 .mode {
   display: flex;
 }
+.mode * {
+  padding: 0.5rem;
+  margin-right: 250px;
+  cursor: pointer;
+  border: #373a56 2px solid;
+}
+.mode *:hover,
+.mode .active-mode {
+  background-color: #ddd;
+}
+.style-tab button:hover {
+  background-color: #eee;
+}
+
 .style-tab button {
   padding: 0.5rem;
+  cursor: pointer;
   border: 1px solid var(--main-accent-clr);
   border-radius: 5px;
   margin-right: 3px;

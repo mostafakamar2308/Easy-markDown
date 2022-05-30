@@ -1,10 +1,9 @@
-import React from "react";
 import { Settings } from "./textSettings";
-export function NoteEditor() {
+export function NoteEditor(props) {
   return (
     <section className="note-editor">
       <Settings></Settings>
-      <textarea></textarea>
+      <textarea value={props.currentActiveNote}></textarea>
     </section>
   );
 }
