@@ -2,6 +2,7 @@ import "./App.css";
 import React from "react";
 import { NoteList } from "./components/noteListViewer";
 import { NoteEditor } from "./components/noteWrite";
+import { act } from "react-dom/test-utils";
 
 function App() {
   const [notes, setNotes] = React.useState([
@@ -50,6 +51,7 @@ function App() {
     let noteId = Number(e.target.id);
     console.log(noteId);
 
+    setActiveNote(notes[noteId]);
     setNotes((prevNotes) => {
       return prevNotes.map((ele, index) => {
         if (index === noteId) {
@@ -58,19 +60,15 @@ function App() {
         return ele;
       });
     });
-    setActiveNote(notes[noteId]);
   }
 
   return (
-    <div className="App">
-      <NoteList
-        handleAddingNewNotes={addNewNote}
-        noteList={notes}
-        activeNote={activeNote}
-        handlePressNote={pressNote}
-      />
-      <NoteEditor currentActiveNote={activeNote.body} />
-    </div>
+    <NoteList
+      handleAddingNewNotes={addNewNote}
+      noteList={notes}
+      activeNote={activeNote}
+      handlePressNote={pressNote}
+    />
   );
 }
 
