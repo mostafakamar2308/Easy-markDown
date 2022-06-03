@@ -1,5 +1,3 @@
-import { NoteEditor } from "./noteWrite";
-
 export function NoteList(props) {
   return (
     <section className="App">
@@ -27,7 +25,6 @@ export function NoteList(props) {
           })}
         </section>
       </section>
-      <NoteEditor currentActiveNote={props.activeNote.body} />
     </section>
   );
 }

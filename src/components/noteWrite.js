@@ -1,26 +1,38 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Settings } from "./textSettings";
 export function NoteEditor(props) {
   const [textInPlace, setTextInPlace] = React.useState(props.currentActiveNote);
-  function keyStroke(e) {
-    if (e.nativeEvent.inputType === "deleteContentBackward") {
-      setTextInPlace((text) => text.slice(0, -1));
-    } else if (e.nativeEvent.inputType === "deleteWordBackward") {
-      console.log(textInPlace);
-      setTextInPlace((text) => text.substring(0, text.lastIndexOf(" ")));
-    } else {
-      setTextInPlace((text) => [text, e.nativeEvent.data].join(""));
-    }
+
+  useEffect(() => {
+    setTextInPlace(props.currentActiveNote);
+  }, [props.currentActiveNote]);
+
+  function toggleActiveMode() {
+    let children = Array.from(document.querySelector(".mode").children);
+    children.forEach((ele) => ele.classList.toggle("active-mode"));
+  }
+  function previewNote() {
+    toggleActiveMode();
+    document.querySelector("#note-body").style.display = "none";
+    document.querySelector("#note-preview").style.display = "block";
+  }
+
+  function editNote() {
+    toggleActiveMode();
+    document.querySelector("#note-body").style.display = "block";
+    document.querySelector("#note-preview").style.display = "none";
   }
   return (
     <section className="note-editor">
-      <Settings></Settings>
+      <Settings previewClick={previewNote} editClick={editNote}></Settings>
       <textarea
         id="note-body"
-        value={textInPlace}
-        onChange={keyStroke}
-        onKeyDown={props.handleWriting}
+        defaultValue={textInPlace}
+        onChange={props.handleChange}
+        // onChange={keyStroke}
+        // onKeyDown={props.handleWriting}
       ></textarea>
+      <div id="note-preview">{previewText}</div>
     </section>
   );
 }

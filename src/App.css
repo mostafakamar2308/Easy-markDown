@@ -8,9 +8,12 @@
   box-sizing: border-box;
 }
 
-.App {
+#root > section {
   display: grid;
   grid-template-columns: 30% 70%;
+}
+.mode div {
+  border-radius: 20px;
 }
 
 .add-new-note {
@@ -76,7 +79,8 @@
   margin-right: 3px;
   background-color: transparent;
 }
-textarea {
+#note-body,
+#note-preview {
   border: 3px solid var(--main-accent-clr);
   margin: 10px;
   width: calc(100% - 20px);
